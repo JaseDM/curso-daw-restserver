@@ -19,9 +19,9 @@ router.get('/', usuariosGet);
 
 router.post('/',  usuariosPost);
 
-router.put('/',  usuariosPut);
+router.put('/:id',  usuariosPut); // Petición con parametro de segción id
 
-router.delete('/',  usuariosDelete);
+router.delete('/:id',  usuariosDelete);  // Petición con parametro de segción id 
 
 
 
