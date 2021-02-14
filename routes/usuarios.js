@@ -1,5 +1,7 @@
 // Destructuramos el metodo Router 
 const { Router } = require('express');
+const { check } = require('express-validator');
+
 // Importamos el controlador de usuarios
 const { usuariosGet, 
         usuariosPost, 
@@ -17,7 +19,8 @@ const router = Router();
 // La rutas se definen a la raiz del sitio porque desde la clase server el middleware encargado de cargar las rutas define la url
 router.get('/', usuariosGet);
 
-router.post('/',  usuariosPost);
+// Parametros  'ruta'/[middleware, middleware]/controlador
+router.post('/', check('El email no es válido').isEmail() , usuariosPost);
 
 router.put('/:id',  usuariosPut); // Petición con parametro de segción id
 

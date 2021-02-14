@@ -116,3 +116,7 @@ middleware() {
  Declaración y uso de las variables en el archivo .env
  ``` PORT=8080 ``` 
  ``` process.env.PORT ```
+
+  ### Mongoose
+  ### bcryptjs
+  ### express-validator@6.9.2
