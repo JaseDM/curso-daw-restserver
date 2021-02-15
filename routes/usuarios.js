@@ -20,7 +20,9 @@ const router = Router();
 router.get('/', usuariosGet);
 
 // Parametros  'ruta'/[middleware, middleware]/controlador
-router.post('/', check('El email no es válido').isEmail() , usuariosPost);
+router.post('/', 
+check('El email no es válido').isEmail() , 
+usuariosPost);
 
 router.put('/:id',  usuariosPut); // Petición con parametro de segción id
 

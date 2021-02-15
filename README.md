@@ -101,22 +101,56 @@ middleware() {
 }
  ```
 
- ### Dotenv
+### Dotenv
 
- Instalación
- ``` npm install dotenv```
+Instalación
+``` npm install dotenv```
 
- Importación
- ``` require('dotenv').config() ```
+Importación
+``` require('dotenv').config() ```
 
- Descripción
- Módulo que carga variables de entorno desde un archivo .env a process.env
+Descripción
+Módulo que carga variables de entorno desde un archivo .env a process.env
 
- Uso 
- Declaración y uso de las variables en el archivo .env
- ``` PORT=8080 ``` 
- ``` process.env.PORT ```
+Uso 
+Declaración y uso de las variables en el archivo .env
+``` PORT=8080 ``` 
+``` process.env.PORT ```
 
-  ### Mongoose
-  ### bcryptjs
-  ### express-validator@6.9.2
+### Mongoose
+
+### Dotenv
+
+Instalación
+``` npm install mongoose```
+
+Importación
+``` const mongoose = require('mongoose') ```
+
+Descripción
+Mongoose es una biblioteca de JavaScript que le permite definir esquemas con datos fuertemente tipados. Una vez que se define un esquema, Mongoose le permite crear un Modelo basado en un esquema específico. 
+
+Uso 
+creamos una función asincriona (async/await) de conexión a la base de datos. Para validar la respuesta utilizamos try/catch 
+
+```
+const dbConnection = async() =>{
+
+    // Para conesiones remotas, utilizamos try/catch por si hubiera algun error
+    try {
+       await mongoose.connect(process.env.MONGODB_CNN, { useNewUrlParser: true, useUnifiedTopology: true});
+       console.log('Base de datos Online');
+    } catch (error) {
+        console.log(error);
+        throw new Error('Error en la conexión de la base de datos')
+    }
+}
+```
+
+
+
+
+### bcryptjs
+
+
+### express-validator@6.9.2
