@@ -9,7 +9,7 @@ const dbConnection = async() =>{
 
     // Para conesiones remotas, utilizamos try/catch por si hubiera algun error
     try {
-       await mongoose.connect(process.env.MONGODB_CNN, { useNewUrlParser: true, useUnifiedTopology: true});
+       await mongoose.connect(process.env.MONGODB_CNN, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
        console.log('Base de datos Online');
     } catch (error) {
         console.log(error);

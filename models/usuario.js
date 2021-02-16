@@ -30,9 +30,7 @@ const usuarioSchema = Schema({
     },
     rol: {
         type: String,
-        required: [true, 'El rol es requerido'],
-        // Crea las opciones validas para este campo
-        enum: ['ADMIN_ROLE', 'USER_ROLE']
+        required: [true, 'El rol es requerido']
     },
     estado: {
         type: Boolean,
@@ -49,7 +47,12 @@ const usuarioSchema = Schema({
         // fecha y hora actual
         default: Date.now 
     }
-})
+});
+
+usuarioSchema.methods.toJSON = function() {
+    const { __v, password, ...usuarios } = this.toObject();
+    return usuarios;
+}
 
 
 // Se exporta el metodo model pasando como parametro el nombre del modelo y el equema creado
