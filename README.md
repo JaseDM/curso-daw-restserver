@@ -154,3 +154,17 @@ const dbConnection = async() =>{
 
 
 ### express-validator@6.9.2
+
+### Heroku CLI Comandos
+
+## Variables de entorno
+
+``` heroku congig ```
+Muestra todas las variables de entorno
+
+``` heroku config:set saludo=hola ```
+Establece la variable de entorno saludo con el valor hola
+
+``` heroku config:unset saludo  ```
+Elimina la variable saludo
+
