@@ -152,6 +152,13 @@ const dbConnection = async() =>{
 
 ### bcryptjs
 
+### JWT (Json Web Token)
+Un JWT se compone de tres partes. 
+- Header
+- Payload
+- Firma
+
+
 
 ### express-validator@6.9.2
 

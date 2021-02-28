@@ -50,10 +50,11 @@ const usuarioSchema = Schema({
 });
 
 usuarioSchema.methods.toJSON = function() {
-    const { __v, password, ...usuarios } = this.toObject();
+    const { __v, password,_id, ...usuarios } = this.toObject();
+    usuarios.uid = _id;
     return usuarios;
 }
 
-
+//console.log(usuarioSchema.methods.toJSON);
 // Se exporta el metodo model pasando como parametro el nombre del modelo y el equema creado
 module.exports = model('Usuario', usuarioSchema);
