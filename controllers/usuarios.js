@@ -84,12 +84,16 @@ const usuariosPut = async(req, res = response) => {
 const usuariosDelete = async(req, res = response) => {
 
   const { id } = req.params;
+  
+  // Podemos recuperar los datos del usuario que hace la petición del
+  // por medio de de la request que generamos el el Middleware de verificación de token
+  // const usuarioAutenticado = req.usuario;
 
+  // El borrado del usuario es un cambio de estado, al estar filtradas las peticiones 
   const usuario = await Usuario.findByIdAndUpdate( id, { estado: false } );
   
-    res.json({
-      usuario
-    })
+  // Respuesta del servidor con la información del usuario borrado 
+  res.json(usuario);
 }
 
 module.exports = {
