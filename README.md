@@ -164,6 +164,9 @@ Un JWT se compone de tres partes.
 
 ### Heroku CLI Comandos
 
+##Conectar remote
+``` heroku git:remote -a nombre ```
+
 ## Variables de entorno
 
 ``` heroku congig ```
