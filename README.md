@@ -178,3 +178,88 @@ Establece la variable de entorno saludo con el valor hola
 ``` heroku config:unset saludo  ```
 Elimina la variable saludo
 
+
+### Entpoints
+
+## URL
+
+https://restserver-daw.herokuapp.com
+
+# Login
+POST: ``` /api/auth/login ```
+
+Petición post que devuelve un token de autentificación. Se manda en el body los sigientes parámetros.
+
+```
+{
+    "correo": "ejemplo@ejemplo.com",
+    "password": "contraseña"
+}
+
+```
+
+# Listar usuarios
+
+GET: ``` /api/usuarios?desde=0&limite=15 ```
+
+Lista todos los usuarios en base de datos. Tiene dos parametros por url opcionales pa la paginación.
+
+# Añadir usuarios
+
+POST: ``` /api/usuarios```
+
+Inserta en base de datos un nuevo usuario de base de datos. En el body de la petición se pasa los datos para un alta nueva en formato Json
+
+```
+{
+    "nombre": "nombre",
+    "correo": "email@gmail.com",
+    "password": "password",
+    "rol": "USER_ROLE"
+
+}
+
+```
+
+
+
+
+# Actualizar usuario
+
+PUT: ``` /api/usuarios/id ```
+
+Actualiza un usuario en base de datos con la id que se le pase como parámetro en la url. La información a actualizar se pasa por el body de la petición en una estructura  Json 
+
+```
+{
+    "correo": "ejemplo@ejemplo.com",
+    "password": "contraseña",
+    "estado": true, 
+    "rol": "USER_ROLE"
+}
+```
+
+# Borrar usuario
+
+DELETE: ``` /api/usuarios/id ```
+
+Petición para el borrado de usuarios en base de datos. La petición debe de llevar en cabecera el token que se ha generado en el login y ademas tener el rol de super usuario para poder hacer la petición.
+
+
+
+```
+"headers": {
+    "x-token": "Token valido consegido tras el login"
+}
+```
+
+
+
+
+
+
+
+
+
+
+
